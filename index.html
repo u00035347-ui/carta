@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta Secreta & Poema de Amor ❤️</title>
+    <!-- Google Fonts con tipografía caligráfica y moderna de alta elegancia -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Marck+Script&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Fondo con Corazones Flotantes -->
+    <div class="hearts-bg" id="heartsBg"></div>
+
+    <div class="container">
+        
+        <!-- CARD DE CANDADO DIGITAL -->
+        <div class="lock-card" id="lockCard">
+            <div class="envelope-icon">💌</div>
+            <h1>Carta Secreta de Amor</h1>
+            <p class="subtitle">Ingresa nuestra fecha especial para abrir el mensaje de mi corazón</p>
+
+            <div class="hint-box" id="hintDisplay">
+                💡 Pista: <span id="hintText">Nuestra fecha especial (DDMMAA)</span>
+            </div>
+
+            <!-- 6 Puntos para la clave 110926 -->
+            <div class="pin-display" id="pinDisplay">
+                <div class="pin-dot" id="dot0"></div>
+                <div class="pin-dot" id="dot1"></div>
+                <div class="pin-dot" id="dot2"></div>
+                <div class="pin-dot" id="dot3"></div>
+                <div class="pin-dot" id="dot4"></div>
+                <div class="pin-dot" id="dot5"></div>
+            </div>
+
+            <div class="keypad">
+                <button class="key-btn" onclick="pressKey('1')">1</button>
+                <button class="key-btn" onclick="pressKey('2')">2</button>
+                <button class="key-btn" onclick="pressKey('3')">3</button>
+                <button class="key-btn" onclick="pressKey('4')">4</button>
+                <button class="key-btn" onclick="pressKey('5')">5</button>
+                <button class="key-btn" onclick="pressKey('6')">6</button>
+                <button class="key-btn" onclick="pressKey('7')">7</button>
+                <button class="key-btn" onclick="pressKey('8')">8</button>
+                <button class="key-btn" onclick="pressKey('9')">9</button>
+                <button class="key-btn del" onclick="clearPin()">C</button>
+                <button class="key-btn" onclick="pressKey('0')">0</button>
+                <button class="key-btn del" onclick="deleteKey()">⌫</button>
+            </div>
+        </div>
+
+        <!-- CARD DEL POEMA DESBLOQUEADO -->
+        <div class="letter-card" id="letterCard">
+            <div class="letter-header">
+                <div class="sub-header">Para la mujer más hermosa de mi vida</div>
+                <h2>Bajo el Mismo Cielo</h2>
+                <div class="gold-divider">✨ 🌹 ✨</div>
+            </div>
+
+            <!-- Estructura del Poema (De Varón a Mujer) -->
+            <div class="poem-body" id="poemTextDisplay">
+                <div class="stanza">
+                    Aunque hoy no pueda tenerte a mi lado<br>
+                    y la distancia nos pida esperar,<br>
+                    sé bien que mi pecho vive ilusionado<br>
+                    con solo saber que me vas a amar.
+                </div>
+
+                <div class="stanza">
+                    Compartimos la hora, el mismo trayecto,<br>
+                    la misma ciudad y el mismo calor,<br>
+                    y en esta espera me queda bien claro<br>
+                    que tú eres mi único y verdadero amor.
+                </div>
+
+                <div class="stanza">
+                    Miro la luna que hoy nos cobija,<br>
+                    sabiendo que tú la miras también;<br>
+                    eres la mujer que mi alma eligió,<br>
+                    mi refugio de paz, mi reina y mi bien.
+                </div>
+
+                <div class="stanza">
+                    Guardo en mis labios el beso ansioso<br>
+                    y en mis brazos la prisa de verte otra vez,<br>
+                    porque hacerte feliz es mi mayor dicha<br>
+                    y admirar tu belleza, mi dulce calidez.
+                </div>
+
+                <div class="stanza final-stanza">
+                    Pronto estaré a tu lado, mi princesa,<br>
+                    para tomar tus manos y volvértelo a decir...<br>
+                    <strong>¡Eres la mujer de mi vida y mi gran felicidad! ❤️</strong>
+                </div>
+            </div>
+
+            <div class="letter-footer">
+                <button class="love-btn" onclick="sendLoveExplosion()">¡Te Amo Con Toda Mi Alma! 💖</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Botón Flotante para Personalizar -->
+    <button class="config-btn" onclick="openConfigModal()">⚙️ Editar Texto o Clave</button>
+
+    <!-- MODAL DE CONFIGURACIÓN -->
+    <div class="modal-overlay" id="configModal">
+        <div class="modal-card">
+            <h2 style="color: var(--primary); margin-bottom: 15px;">⚙️ Editar Poema o Clave</h2>
+
+            <label>Contraseña PIN (6 números):</label>
+            <input type="text" id="cfgPin" maxlength="6" value="110926">
+
+            <label>Pista para la contraseña:</label>
+            <input type="text" id="cfgHint" value="Nuestra fecha especial (DDMMAA)">
+
+            <label>Texto del Poema (usa salto de línea doble para estrofas):</label>
+            <textarea id="cfgPoem" rows="8"></textarea>
+
+            <button class="save-btn" onclick="saveConfiguration()">Guardar Cambios ✨</button>
+            <button style="background: transparent; border: none; color: #888; margin-top: 10px; cursor: pointer;" onclick="closeModal('configModal')">Cancelar</button>
+        </div>
+    </div>
+
+    <canvas id="confettiCanvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
